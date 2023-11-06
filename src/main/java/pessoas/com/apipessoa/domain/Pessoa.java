@@ -31,7 +31,7 @@ public class Pessoa {
     }
 
     public void atualizarInformacoes(DadosAtualizaPessoa dados) {
-        if ( dados.nome() != null){
+        if ( dados.nome() != null && !dados.nome().equals("")){
             this.nome = dados.nome();
         }
         if (dados.dataNascimento() != null){

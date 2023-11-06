@@ -37,6 +37,12 @@ public class PessoaController {
         return ResponseEntity.ok(lista);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var pessoa = service.detalha(id);
+        return ResponseEntity.ok(new DadosDetalharPessoa(pessoa));
+    }
+
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizaPessoa dados) {

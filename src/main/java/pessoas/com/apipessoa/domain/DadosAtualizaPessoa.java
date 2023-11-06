@@ -13,9 +13,7 @@ public record DadosAtualizaPessoa(
         @NotNull
         Long id,
 
-
         String nome,
-
 
         LocalDate dataNascimento
 ) {

@@ -32,4 +32,9 @@ public class PessoaService {
     public void deleta(Long id) {
         repository.deleteById(id);
     }
+
+    public Pessoa detalha(Long id) {
+        var pessoa = repository.getReferenceById(id);
+        return pessoa;
+    }
 }

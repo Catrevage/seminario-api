@@ -23,8 +23,8 @@ public class PessoaService {
         return lista;
     }
 
-    public pessoas.com.apipessoa.domain.Pessoa atualiza(@Valid DadosAtualizaPessoa dados) {
-        var pessoa = repository.getReferenceById(dados.id());
+    public pessoas.com.apipessoa.domain.Pessoa atualiza( DadosAtualizaPessoa dados,Long id) {
+        var pessoa = repository.getReferenceById(id);
         pessoa.atualizarInformacoes(dados);
         return pessoa;
     }

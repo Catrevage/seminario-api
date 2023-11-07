@@ -28,7 +28,7 @@ public class PessoaController {
         var uri = uriBuilder.path("pessoa/{id}").buildAndExpand(pessoa.getId()).toUri();
 
         service.salva(pessoa);
-        return ResponseEntity.created(uri).body(new DadosDetalharPessoa(pessoa));
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping
@@ -43,11 +43,11 @@ public class PessoaController {
         return ResponseEntity.ok(new DadosDetalharPessoa(pessoa));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizaPessoa dados) {
-        var pessoa = service.atualiza(dados);
-        return ResponseEntity.ok(new DadosDetalharPessoa(pessoa));
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizaPessoa dados, @PathVariable Long id) {
+        var pessoa = service.atualiza(dados, id);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
